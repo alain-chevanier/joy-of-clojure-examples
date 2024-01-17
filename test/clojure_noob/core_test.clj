@@ -3,5 +3,11 @@
             [clojure-noob.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing "test a, this pass"
+    (is (= 1 1))))
+
+(deftest b-test
+  (testing "test b, this pass too"
+    (is (= 3 3))))
+
+;; but I

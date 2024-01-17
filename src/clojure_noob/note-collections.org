@@ -1,0 +1,75 @@
+#+title: Notes on Data Types
+
+* Scalars
+** Numbers
+*** Integers
+*** Floating-point numbers
+*** Rationals
+** Symbols
+** Keywords
+** Strings
+** Characters
+#+begin_src clojure
+#+end_src
+* Collections
+** Form and Special Forms
+
+A form is any clojure object meant to be evaluated
+lists, vector, maps, numbers, keywords, symbols
+Special forms are those that are not typically implemented
+using the base clojure form, eg. "dot" operator (.) used for
+java interoperability
+
+** Lists
+
+Classic collection type in Lisp (list processing). Literal example:
+
+#+begin_src clojure
+(yankee hotel foxtrot)
+#+end_src
+
+When a list is evaluated, the first item of the list is resolved to a function,
+macro, or special operator.
+
+if yankee is a function the remaining items in the list are
+evaluated in order and the results are passed to yankee as its parameters
+
+if yankee is a macro or special operator the remaining iterms in the list
+are not necessarly evaluated but are processed as defined by the macro or operator
+
+Unlike some lisp, the empty list "()" is not the same as "nil".
+
+** Vectors
+
+Example
+
+#+begin_src clojure
+[1 2 :a "b"]
+#+end_src
+
+They can be heterogeneous, they evaluate each iterm in orden, no function or macro
+call is performed on the vector itself.
+
+Empty vector "[]" is not the same as "nil".
+
+** Maps
+
+Store unique keys and onve value per key. Equivalent to dictionaries or hashes in other
+languages.
+
+#+begin_src clojure
+{1 "one", 2 "two", 3 "three"}
+#+end_src
+
+As with vectors, every itme in a map literal is evaluate before the result is stored.
+No warranty about eveluation order.
+
+Empty map "{}" is not the same as "nil".
+** Sets
+Store zero or more unique items. Example:
+
+#+begin_src clojure
+#{1 2 "three" :four 0x5}
+#+end_src
+
+Empty set "#{}" is not the same as "nil"
