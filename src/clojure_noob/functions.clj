@@ -17,8 +17,8 @@
 
 (square 12)
 
-;; multi-arity functions
-
+;; Multi-arity Functions
+;; Several ways to define functions with a variable number of arguments
 (def my-str "Hello World!")
 (println my-str)
 
