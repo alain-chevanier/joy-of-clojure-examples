@@ -1,0 +1,36 @@
+#+title: Note Functions
+
+* Functions
+** How to define
+We can define an anonymous functions as follows:
+
+#+begin_src clojure
+(fn [x] (* x x))
+#+end_src
+
+But if we want to use it somewhere we need to give it a name with the special form ~def~ as follows:
+
+#+begin_src clojure
+(def square
+  (fn [x] (* x x)))
+#+end_src
+
+We can also use a shorter version to define a function using the macro ~defn~ as follows:
+
+#+begin_src clojure
+(defn square
+  "Doc String for square func, use it to document what the function does"
+  [x]
+  (println "Calculating the square of x: " x)
+  (* x x))
+#+end_src
+
+** Multi-arity functions
+To create a functions with a variable number of arguments we may use the following syntax
+
+#+begin_src clojure
+(defn make-set
+  ([x] #{x})
+  ([x y] #{x y})
+  ([x y & zs] (clojure.set/union #{x y} (apply make-set zs))))
+#+end_src
